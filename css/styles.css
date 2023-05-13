@@ -253,7 +253,7 @@ img {
 .btn {
   font-size: inherit;
   line-height: inherit;
-  font-family: inherit;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   letter-spacing: 0.04em;
   text-align: center;
@@ -399,7 +399,6 @@ img {
 
 .media-social {
   --items: 4;
-  justify-content: center;
 
   height: 40px;
   padding-right: 16px;
@@ -617,7 +616,6 @@ img {
 }
 .footer-container {
   display: flex;
-  align-items: baseline;
 }
 
 .page-footer .logo {
@@ -631,6 +629,10 @@ img {
 
 .footer-left-part {
   margin-right: 120px;
+}
+
+.footer-right-part {
+  margin-right: 80px;
 }
 
 .footer.text {
@@ -657,6 +659,53 @@ img {
 .page-footer .social-link:hover,
 .page-footer .social-link:focus {
   background-color: var(--acent-color-green);
+}
+
+.footer-form {
+  display: flex;
+  gap: 24px;
+}
+
+.form-input {
+  padding: 0;
+  padding-left: 16px;
+  min-width: 263px;
+  min-height: 40px;
+
+  font-family: inherit;
+  color: var(--color-text-white);
+
+  border: 1px solid #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: transparent;
+  outline: transparent;
+}
+
+.form-input::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--color-text-white);
+}
+
+.footer-form-btn {
+  display: flex;
+  gap: 16px;
+
+  padding: 8px 24px;
+  border: 0;
+  border-radius: 4px;
+}
+
+.footer-form-btn:focus,
+.footer-form-btn:hover {
+  background-color: var(--acent-color-green);
+}
+
+.icon-send {
+  fill: currentColor;
 }
 
 /**
@@ -695,8 +744,13 @@ img {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
 
-  min-width: 408px;
+  box-sizing: border-box;
+  max-width: 408px;
   min-height: 576px;
+  padding-top: 72px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
 
   /*transform-origin: top left;*/
   transition: transform 250ms var(--timing-function);
@@ -740,4 +794,123 @@ img {
 .modal-close-btn:hover .modal-close-icon,
 .modal-close-btn:focus .modal-close-icon {
   fill: currentColor;
+}
+
+.modal-form-desc {
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-navy);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+
+  color: var(--background-color-light);
+}
+
+.form-label.name {
+  letter-spacing: 0.04em;
+}
+
+.modal-form-wrapper {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.modal-form-input {
+  width: 100%;
+  height: 40px;
+  padding: 0;
+  padding-left: 38px;
+
+  outline: transparent;
+  outline-offset: -1px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+
+  transition: border 250ms var(--timing-function);
+}
+
+.modal-form-input:focus {
+  border: 1px solid var(--acent-color);
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+
+  transition: fill 250ms var(--timing-function);
+  pointer-events: none;
+}
+
+.modal-form-input:focus + .form-icon {
+  fill: var(--acent-color);
+}
+
+.modal-form-comment {
+  display: block;
+  width: 100%;
+  height: 120px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+
+  transition: border 250ms var(--timing-function);
+
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+
+  resize: none;
+  outline: transparent;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+}
+.modal-form-comment:focus {
+  border: 1px solid var(--acent-color);
+}
+
+.privacy-check {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.modal-privacy-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+
+  color: var(--background-color-light);
+}
+
+.privacy-check-link {
+  color: var(--acent-color);
+
+  transition: color 250ms var(--timing-function);
+}
+
+.privacy-check-link:hover,
+.privacy-check-link:focus {
+  color: var(--acent-color-active);
+}
+.submit.btn {
+  display: block;
+  min-width: 169px;
+  padding: 16px 32px;
+  margin: 0 auto;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: 0;
+  border-radius: 4px;
 }
