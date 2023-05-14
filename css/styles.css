@@ -24,7 +24,7 @@
 
 /**
   |========================================================
-  |            Глобальні стилі  нормалізація та reset
+  |            Глобальні стилі нормалізація та reset
   |========================================================
 */
 
@@ -84,7 +84,7 @@ img {
 
 /**
   |==========================================
-  |                Скриті заголовки
+  |                Скритий заголовок
   |==========================================
 */
 .visually-hidden {
@@ -189,6 +189,7 @@ img {
 
   transition: color 250ms var(--timing-function);
 }
+
 .address .link:hover,
 .address .link:focus,
 .address .link:active {
@@ -666,6 +667,10 @@ img {
   gap: 24px;
 }
 
+.form-field {
+  position: relative;
+}
+
 .form-input {
   padding: 0;
   padding-left: 16px;
@@ -675,20 +680,45 @@ img {
   font-family: inherit;
   color: var(--color-text-white);
 
-  border: 1px solid #ffffff;
+  border: 1px solid var(--background-color-white);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
   background-color: transparent;
-  outline: transparent;
 }
 
-.form-input::placeholder {
+.footer-form-field {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+
+  transition: transform 250ms var(--timing-function);
+
   font-weight: 400;
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.04em;
   color: var(--color-text-white);
 }
+/*
+.form-input:focus + .footer-form-field,
+.form-input:not(:placeholder-shown) + .footer-form-field {
+  transform: translateY(-32px);
+  background-color: var(--background-color-dark);
+}*/
+
+.form-field:focus-within > .footer-form-field,
+.form-input:not(:placeholder-shown) + .footer-form-field {
+  transform: translateY(-32px);
+  background-color: var(--background-color-dark);
+}
+/*.form-input::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--color-text-white);
+}*/
 
 .footer-form-btn {
   display: flex;
@@ -832,7 +862,7 @@ img {
 
   outline: transparent;
   outline-offset: -1px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
+  border: 1px solid var(--background-modal);
   border-radius: 4px;
 
   transition: border 250ms var(--timing-function);
@@ -870,21 +900,55 @@ img {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  color: rgba(46, 47, 66, 0.4);
+  color: var(--background-modal);
 
   resize: none;
   outline: transparent;
-  border: 1px solid rgba(46, 47, 66, 0.4);
+  border: 1px solid var(--background-modal);
   border-radius: 4px;
 }
 .modal-form-comment:focus {
   border: 1px solid var(--acent-color);
 }
 
+.modal-form-comment::placeholder {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--background-modal);
+}
+
 .privacy-check {
   display: flex;
-  gap: 8px;
   margin-bottom: 24px;
+}
+
+.modal-checkbox {
+  appearance: none;
+  position: absolute;
+}
+.modal-icon-check {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+
+  transition: background-color 250ms var(--timing-function), border 250ms var(--timing-function);
+
+  border: 1px solid var(--background-modal);
+  border-radius: 2px;
+}
+
+.modal-checkbox:checked + .modal-icon-check {
+  background-color: var(--acent-color-active);
+  border: 1px solid var(--acent-color-active);
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23F4F4FD' d='M11.446 4.255A.917.917 0 0 1 13 4.901a.928.928 0 0 1-.242.649l-4.894 6.154a.921.921 0 0 1-1.019.229.918.918 0 0 1-.306-.204L3.293 8.466a.925.925 0 0 1-.226-1.024.925.925 0 0 1 .87-.578.916.916 0 0 1 .656.294L7.162 9.74l4.26-5.458a.311.311 0 0 1 .025-.027h-.001Z'/%3E%3C/svg%3E");
+  background-position: 50% 50%;
+  background-size: contain;
+  background-origin: border-box;
 }
 
 .modal-privacy-text {
