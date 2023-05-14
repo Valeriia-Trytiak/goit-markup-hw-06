@@ -882,17 +882,21 @@ img {
 }
 
 .privacy-check {
-  display: block;
+  display: flex;
+  gap: 8px;
   margin-bottom: 24px;
 }
 
 .modal-privacy-text {
+  width: 100%;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
 
   color: var(--background-color-light);
+
+  user-select: none;
 }
 
 .privacy-check-link {
